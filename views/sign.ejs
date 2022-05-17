@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Your Recipe</title>
+    <link rel='stylesheet' type='text/css' media='screen' href='../sign.css'>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="https://kit.fontawesome.com/1935d064dd.js" crossorigin="anonymous"></script>
+</head>
+
+<body>
+    <!---------------------Header for sign up  Page-->
+    <header>
+        <div class="navbar">
+            <div class="mylogo">
+                <h1>BELLA'S</h1s>
+
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="/">HOME</a></li>
+                    <li><a href="/about">ABOUT</a></li>
+                    <li><a href="/contact">CONTACT</a></li>
+                    <li><a href="/explore">EXPLORE</a></li>
+
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-------section2-->
+    <section class="section-signup">
+        <div class="container">
+            <div>
+                <h2>Sign Up Form</h2>
+            </div>
+
+            <div class="form-flex">
+                <div class="form-image">
+                    <img src="../images/image2.jpg">
+                </div>
+
+                <div class="form-child1">
+                    <form>
+                        <!----
+                        <div class="form-field">
+                        <input type="text" name="username" class="input-sign" placeholder="Username">
+                        <div id="user" style="color: tomato; text-align: center"></div>  
+                        </div><br>-->
+                        <div class="form-field">
+                        <input type="email" name="email" class="input-sign" placeholder="E-mail">
+                        <div class="email" style="color: rgb(20, 20, 20); text-align: center"></div>
+                        </div> <br>
+                        <div class="form-field">
+                        <input type="password" name="password" class="input-sign" placeholder="Password">
+                        <div class="password" style="color: rgb(14, 13, 13); text-align: center"></div>
+                        </div><br>
+                        <button type="submit" class="sign-button">Sign Up</button>
+                    </form>
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-------footer only-->
+    <footer>
+        <div class="flex3">
+            <div class="left-social">
+                <a href="#"><i class="fab fa-facebook"></i></a>
+                <a href="#"><i class="fab fa-twitter"></i></a>
+                <a href="#"><i class="fab fa-instagram"></i></a>
+
+            </div>
+
+        </div>
+
+        <p>Powered By Blogger &copy; 2022 | Theme By: <span>Ashbella</span> </p>
+    </footer>
+
+    <!-----get request for sign up-->
+    <script>
+        const form = document.querySelector("form");
+      const emailError = document.querySelector('.email');
+      const passwordError = document.querySelector('.password');
+
+
+      form.addEventListener("submit", async (e) => {
+        e.preventDefault();
+
+        const email = form.email.value;
+        const password = form.password.value;
+
+        emailError.textContent = "";
+        passwordError.textContent = "";
+
+        try {
+          const response = await fetch("/signUp", {
+            method: "POST",
+            body: JSON.stringify({ email, password }),
+            headers: { "Content-Type": "application/json"}
+          });
+
+          const data = await response.json();
+        
+
+          if(data.errors) {
+              emailError.textContent = data.errors.email;
+              passwordError.textContent = data.errors.password;
+          }
+
+          if(data.user) {
+              location.assign('/')
+          }
+          
+        } catch (error) {
+          console.log(error)
+        }
+      });
+
+    
+    </script>
+
+</body>
+
+</html>

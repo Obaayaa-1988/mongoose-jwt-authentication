@@ -1,0 +1,203 @@
+@import url('https://fonts.googleapis.com/css2?family=Abel&family=Assistant:wght@200&family=Corinthia:wght@700&family=Cormorant+Garamond:wght@300&family=Kalam:wght@300&family=Oswald:wght@200&family=Poppins&family=Tajawal:wght@200;300;400&display=swap');
+
+
+*{
+    margin: 0;
+    padding: 0;
+}
+
+
+.mylogo{
+    font-size: 1.5rem;
+    padding-top: 1rem;
+    font-weight: bolder;
+    font-family: 'Oswald';
+}
+.navbar{
+    display: flex;
+    justify-content: space-around;
+}
+
+nav{
+    margin-top: 3rem;
+    font-family: 'Oswald';
+}
+
+a:hover{
+    color: black;
+    opacity: 0.5;
+}
+
+nav ul li {
+    display: inline;
+    text-decoration: none;
+    font-size: 1rem;
+    color: black;
+    font-weight: bold;
+    margin-left: 2rem;
+    margin-top: 5rem;
+   
+}
+
+.navbar ul li a{
+    list-style: none;
+    text-decoration: none;
+    color: black;
+}
+
+.container{
+    width: 80%;
+    margin: auto;
+}
+
+
+/*styling the sign up form*/
+
+.section-signup{
+    font-family: 'Oswald';
+    background-color: #f5af19;
+    padding-bottom: 5rem;
+
+}
+
+.form-flex img{
+    width: 45rem;
+    height: 45rem ;
+    object-fit: cover;
+    object-position: 50% 50%;
+    margin-top: 1rem; 
+
+}
+
+.form-flex{
+    display: flex;
+}
+
+
+.section-signup h2{
+    text-align: center;
+    font-family: 'Oswald';
+    padding-top: 3rem;
+    color: #fff;
+    font-size: 1.7rem;
+}
+
+.section-signup form{
+    width: 400px;
+    height: 400px;
+    background-color: white;
+    border-radius: 18px;
+    box-shadow: 5px 5px 15px rgba(141, 140, 140, 0.7);
+    padding-left: 5rem;
+    padding-top: 4rem;
+    margin-top: 10rem;
+    margin-left: -8rem;
+
+}
+
+.input-sign{
+    display: block;
+    height: 50px;
+    width: 300px;
+    border-bottom: 2px solid black;
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    padding-left: 2rem;
+    margin-bottom: 1rem;
+    outline: none;
+
+}
+
+.sign-button{
+    height: 50px;
+    width: 300px;
+    border: none;
+    outline: none;
+    background: #f12711;
+    background: -webkit-linear-gradient(to right, #f5af19, #f12711); 
+    background: linear-gradient(to right, #f5af19, #f12711); 
+    font-family: 'Oswald';
+    border-radius: 10px;
+    box-shadow: 5px 5px 15px rgba(141, 140, 140, 0.9);
+    font-size: 1.2rem;
+    font-weight: bold;
+    cursor: pointer;
+    
+}
+
+.sign-button:hover{
+    background: black;
+    color: #fff;
+}
+
+
+
+
+
+
+
+
+
+/*styling the footer */
+
+footer{
+    background-color: rgb(68, 67, 67);
+    height: 200px;
+    font-family: 'Oswald';
+    font-size: 0.9rem;
+    
+}
+
+footer p{
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-top: 3rem;
+   
+
+}
+
+footer button{
+    padding: 1rem 3rem;
+    border-radius: 4px;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    
+}
+
+footer button:hover{
+    background-color: black;
+    color: white;
+}
+
+.but-log:hover{
+    background-color:#c07a1f;
+    color: white;
+    
+
+}
+
+.sign-up{
+    background-color: #c07a1f;
+    color: #fff;
+}
+
+.flex3{
+    display: flex;
+    justify-content: space-around;
+    padding-top: 4rem;
+}
+
+.left-social{
+    font-size: 2rem;
+    
+}
+
+.left-social a{
+    color: white;
+}
+
+

@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Your Recipe</title>
+    <link rel='stylesheet' type='text/css' media='screen' href='../log.css'>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="https://kit.fontawesome.com/1935d064dd.js" crossorigin="anonymous"></script>
+</head>
+
+<body>
+    <!---------------------Header for Contact Page-->
+    <header>
+        <div class="navbar">
+            <div class="mylogo">
+                <h1>BELLA'S</h1s>
+
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="/">HOME</a></li>
+                    <li><a href="/about">ABOUT</a></li>
+                    <li><a href="/contact">CONTACT</a></li>
+                    <li><a href="/explore">EXPLORE</a></li>
+
+                </ul>
+            </nav>
+        </div>
+    </header>
+    
+
+    <!-------section2-->
+    <section class="section-login">
+        <div class="container">
+            <div>
+                <h2>Log In Form</h2>
+            </div>
+            <div class="log-content">
+                <div class="log-image">
+                    <img src="../images/image15.jpg">
+                </div>
+                <h3>WELCOME USER</h3>
+
+                <form>
+                    <!--<div class="form-field">
+                    <input type="text" name="username" class="input-log" placeholder="enter your name...">
+                    <div class="user" style="color: tomato; text-align: center"></div> 
+                    </div><br>-->
+                    
+                    <div class="form-field">
+                    <input type="email" name="email" class="input-log" placeholder="enter your email...">
+                    <div class="email" style="color: rgb(19, 18, 18); text-align: center"></div> 
+                    </div> <br>
+                    <div class="form-field">
+                    <input type="password" name="password" class="input-log" id ="pass"placeholder="enter your password...">
+                    <div class="password" style="color: rgb(5, 5, 5); text-align: center"></div> 
+                    </div> <br>
+                    <button class="login-button" type="submit">Log In</button>
+
+                </form>
+
+                <div class="log-flex">
+                    <div>
+                        <p>Remember Me</p>
+                    </div>
+
+                    <div>
+                        <p>Forgot Password?</p>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+
+    <!------footer-->
+    <footer>
+        <div class="flex3">
+            <div class="left-social">
+                <a href="#"><i class="fab fa-facebook"></i></a>
+                <a href="#"><i class="fab fa-twitter"></i></a>
+                <a href="#"><i class="fab fa-instagram"></i></a>
+
+            </div>
+
+           <!----- <div class="right-buttons">
+                <button class="but-log">LogIn</button>
+                <button class="sign-up">Sign Up</button>
+
+            </div>--->
+        </div>
+
+        <p>Powered By Blogger &copy; 2022 | Theme By: <span class="">Ashbella</span> </p>
+    </footer>
+
+
+    <!----fetching data for login get request-->
+    <script>
+        const form = document.querySelector("form");
+      const emailError = document.querySelector(".email");
+      const passwordError = document.querySelector(".password");
+
+      form.addEventListener("submit", async (e) => {
+        e.preventDefault();
+
+        const email = form.email.value;
+        const password = form.password.value;
+
+        emailError.textContent = "";
+        passwordError.textContent = "";
+
+        try {
+          const response = await fetch("/login", {
+            method: "POST",
+            body: JSON.stringify({ email, password }),
+            headers: { "Content-Type": "application/json" },
+          });
+
+          const data = await response.json();
+          console.log(data);
+
+        //   error handling on the client side 
+
+          if (data.errors) {
+            if (data.errors.split(" ").includes("Email")) {
+              emailError.textContent = data.errors;
+            } else {
+              passwordError.textContent = data.errors;
+            }
+          }
+
+          if (data.user) {
+            location.assign("/");
+          }
+        } catch (error) {
+          console.log(error);
+        }
+      });
+        
+    </script>
+
+
+</body>
+
+</html>
